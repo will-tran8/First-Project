@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var enemy_in_range = false
 var enemy_attack_cooldown = true
+var object_in_range = false
 var health = 200
 var player_alive = true
 
@@ -9,6 +10,9 @@ var attack_ip = false
 
 const speed = 100
 var current_dir = "down"
+
+@onready var all_interactions = []
+@onready var interactlabel = $interactive_componenets/interactlabel
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -19,6 +23,9 @@ func _physics_process(delta):
 	attack()
 	current_camera()
 	update_health()
+	
+	if Input.is_action_pressed("interact"):
+		execute_interaction()
 	
 	if health <= 0:
 		player_alive = false
@@ -170,3 +177,28 @@ func _on_regen_timer_timeout():
 			health = 200
 	if health <= 0:
 		health = 0
+		
+
+func _on_interactable_area_area_entered(area):
+	all_interactions.insert(0, area)
+	update_interactions()
+
+func _on_interactable_area_area_exited(area):
+	all_interactions.erase(area)
+	update_interactions()
+
+func update_interactions():
+	if all_interactions:
+		interactlabel.text = all_interactions[0].interact_label
+	else:
+		interactlabel.text = ""
+
+func execute_interaction():
+	if all_interactions:
+		var current_interaction = all_interactions[0]
+		match current_interaction.interact_type:
+			"print_dialogue": 
+				DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), current_interaction.interact_value)
+
+
+

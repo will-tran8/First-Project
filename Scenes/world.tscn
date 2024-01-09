@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://do7w74wq6dwnp"]
+[gd_scene load_steps=7 format=3 uid="uid://do7w74wq6dwnp"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_m0xxq"]
 [ext_resource type="TileSet" uid="uid://bubmy4oerf878" path="res://Art/hidden1.tres" id="2_fk8k0"]
 [ext_resource type="PackedScene" uid="uid://drkkl6jmo775f" path="res://Scenes/player.tscn" id="4_4ag7g"]
 [ext_resource type="PackedScene" uid="uid://k4vyt4b0vni1" path="res://Scenes/enemy.tscn" id="4_lgu8g"]
+[ext_resource type="PackedScene" uid="uid://c5nmabjiph2t8" path="res://Scenes/interact_area.tscn" id="5_6ufon"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlrjo"]
 size = Vector2(78, 36)
@@ -59,6 +60,20 @@ offset_bottom = 139.0
 scale = Vector2(0.25, 0.25)
 text = "Press e to attack
 an enemy"
+
+[node name="TextEdit3" type="TextEdit" parent="."]
+offset_left = 227.0
+offset_top = 33.0
+offset_right = 467.0
+offset_bottom = 73.0
+scale = Vector2(0.25, 0.25)
+text = "Hit q to interact with objects"
+
+[node name="interact_area" parent="." instance=ExtResource("5_6ufon")]
+position = Vector2(200, 55)
+interact_label = "Read Sign"
+interact_type = "print_dialogue"
+interact_value = "Sign1"
 
 [connection signal="body_entered" from="transition" to="." method="_on_transition_body_entered"]
 [connection signal="body_exited" from="transition" to="." method="_on_transition_body_exited"]

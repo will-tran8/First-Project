@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://k4vyt4b0vni1"]
+[gd_scene load_steps=25 format=3 uid="uid://k4vyt4b0vni1"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_g02mb"]
 [ext_resource type="Texture2D" uid="uid://cn4djbkag26sn" path="res://Art/Characters/slime.png" id="1_hhntc"]
@@ -38,6 +38,18 @@ region = Rect2(64, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tlil"]
 atlas = ExtResource("1_hhntc")
 region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs5cf"]
+atlas = ExtResource("1_hhntc")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q56lb"]
+atlas = ExtResource("1_hhntc")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrx0r"]
+atlas = ExtResource("1_hhntc")
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ygqoc"]
 atlas = ExtResource("1_hhntc")
@@ -83,7 +95,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -100,6 +112,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs5cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q56lb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrx0r")
+}],
+"loop": true,
+"name": &"take_damage",
 "speed": 5.0
 }, {
 "frames": [{
@@ -140,8 +166,8 @@ script = ExtResource("1_g02mb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dqc25")
-animation = &"idle"
-frame_progress = 0.505654
+animation = &"death"
+frame_progress = 0.710919
 offset = Vector2(0, -6)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -164,6 +190,9 @@ shape = SubResource("CircleShape2D_w7uh3")
 [node name="cooldown" type="Timer" parent="."]
 wait_time = 0.5
 
+[node name="death_animation" type="Timer" parent="."]
+wait_time = 0.3
+
 [node name="health_bar" type="ProgressBar" parent="."]
 modulate = Color(0.054902, 1, 0.243137, 1)
 offset_left = -5.0
@@ -178,3 +207,4 @@ show_percentage = false
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="." method="_on_area_2d_2_body_exited"]
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="death_animation" to="." method="_on_death_animation_timeout"]

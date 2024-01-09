@@ -7,12 +7,19 @@ var player = null
 var health = 100
 var player_in_range = false
 var can_take_damage = true
+var death_animation = false
 
 func _physics_process(delta):
 	take_damage()
 	update_health()
 	
-	if player_chase:
+	if health <= 0:
+		if death_animation == false:
+			$AnimatedSprite2D.play("death")
+		else:
+			self.queue_free()
+		
+	elif player_chase:
 		position += (player.position - position)/speed
 		
 		$AnimatedSprite2D.play("walk")
@@ -59,7 +66,8 @@ func take_damage():
 			can_take_damage = false
 			print("slime health = ", health)
 			if health <= 0:
-				self.queue_free()
+				$death_animation.start()
+				
 				
 
 
@@ -75,3 +83,7 @@ func update_health():
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
+
+
+func _on_death_animation_timeout():
+	death_animation = true
