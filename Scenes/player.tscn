@@ -433,7 +433,7 @@ script = ExtResource("1_8l4h7")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_pwl1n")
 animation = &"death"
-frame_progress = 0.454685
+frame_progress = 0.13316
 offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
