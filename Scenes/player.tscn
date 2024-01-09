@@ -516,6 +516,23 @@ scale = Vector2(0.4, 0.4)
 [node name="death_animation" type="Timer" parent="."]
 wait_time = 0.4
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="number" type="TextEdit" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 30.0
+offset_bottom = 39.0
+
+[node name="exp_bar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(0.87451, 0.694118, 0.270588, 1)
+offset_left = 2.0
+offset_top = 38.0
+offset_right = 86.0
+offset_bottom = 51.0
+rounded = true
+show_percentage = false
+
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]

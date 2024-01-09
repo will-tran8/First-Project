@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var enemy_name = String("slime")
+
 var speed = 50
 var player_chase = false
 var player = null
@@ -17,6 +19,7 @@ func _physics_process(delta):
 		if death_animation == false:
 			$AnimatedSprite2D.play("death")
 		else:
+			Global.enemy_slain(enemy_name)
 			self.queue_free()
 		
 	elif player_chase:

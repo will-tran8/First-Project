@@ -6,27 +6,35 @@ var object_in_range = false
 var player_alive = true
 var interaction_running = false
 var death_animation = false
-
 var attack_ip = false
 
+var max_health = Global.player_max_health
 var health = Global.player_current_health
 var speed = Global.player_current_speed
+var level = Global.player_current_level
+var experience = Global.player_current_exp
+
 var current_dir = "down"
 
 @onready var all_interactions = []
 @onready var interactlabel = $interactive_componenets/interactlabel
 
+
+
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
 func _physics_process(delta):
+	Global.get_char_current(max_health, health, speed, level, experience)
 	player_movement(delta)
 	enemy_attack()
 	attack()
 	current_camera()
 	update_health()
 	execute_interaction()
-	Global.get_char_current(health, speed)
+	check_exp()
+	update_exp()
+	update_gui()
 	
 	if health <= 0:
 		if death_animation == false:
@@ -167,18 +175,19 @@ func current_camera():
 func update_health():
 	var healthbar = $health_bar
 	healthbar.value = health
+	healthbar.max_value = max_health
 	
-	if health >= 200:
+	if health >= max_health:
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
 
 func _on_regen_timer_timeout():
 	if player_alive == true:
-		if health < 200:
+		if health < max_health:
 			health = health + 2
-			if health > 200:
-				health = 200
+			if health > max_health:
+				health = max_health
 		if health <= 0:
 			health = 0
 			player_alive = false
@@ -210,3 +219,28 @@ func execute_interaction():
 
 func _on_death_animation_timeout():
 	death_animation = true
+
+func find_exp_needed(level):
+	var exp_needed = 2**level
+	return snapped(exp_needed, 1.0)
+
+func check_exp():
+	var needed = find_exp_needed(level)
+	if needed <= experience:
+		level += 1
+		max_health += 20
+		experience = 0
+
+func update_exp():
+	experience += Global.exp_to_be_updated
+	Global.reset_exp()
+
+func update_gui():
+	var exp_bar = $CanvasLayer/exp_bar
+	var needed = find_exp_needed(level)
+	var current_level = str(level)
+	exp_bar.value = experience
+	exp_bar.max_value = needed
+	$CanvasLayer/number.text = current_level
+
+
