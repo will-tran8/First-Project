@@ -432,7 +432,8 @@ script = ExtResource("1_8l4h7")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_pwl1n")
-animation = &"back_attack"
+animation = &"death"
+frame_progress = 0.454685
 offset = Vector2(0, -15)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -506,11 +507,14 @@ position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_0h4o8")
 
 [node name="interactlabel" type="Label" parent="interactive_componenets"]
-offset_left = -15.0
-offset_top = -32.0
-offset_right = 46.0
-offset_bottom = -9.0
-scale = Vector2(0.5, 0.5)
+offset_left = -12.0
+offset_top = -27.0
+offset_right = 48.0
+offset_bottom = -4.0
+scale = Vector2(0.4, 0.4)
+
+[node name="death_animation" type="Timer" parent="."]
+wait_time = 0.4
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_area_2d_body_exited"]
@@ -519,3 +523,4 @@ scale = Vector2(0.5, 0.5)
 [connection signal="timeout" from="regen_timer" to="." method="_on_regen_timer_timeout"]
 [connection signal="area_entered" from="interactive_componenets/interactable_area" to="." method="_on_interactable_area_area_entered"]
 [connection signal="area_exited" from="interactive_componenets/interactable_area" to="." method="_on_interactable_area_area_exited"]
+[connection signal="timeout" from="death_animation" to="." method="_on_death_animation_timeout"]

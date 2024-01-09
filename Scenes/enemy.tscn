@@ -167,7 +167,7 @@ script = ExtResource("1_g02mb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_dqc25")
 animation = &"death"
-frame_progress = 0.710919
+frame_progress = 0.244655
 offset = Vector2(0, -6)
 
 [node name="Area2D" type="Area2D" parent="."]

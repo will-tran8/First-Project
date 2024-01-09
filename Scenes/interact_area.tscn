@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/interact_area.gd" id="1_fqfem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pv2qw"]
-size = Vector2(31.7188, 25.0625)
+size = Vector2(23.8594, 20.5313)
 
 [node name="interact_area" type="Area2D"]
 collision_layer = 4

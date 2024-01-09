@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://dkoaom83n1rqa"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_hh7rf"]
+[ext_resource type="FontFile" uid="uid://b40vmg87wun7s" path="res://Font/MondayFeelings-7BD2l.ttf" id="2_2oq0k"]
+[ext_resource type="Texture2D" uid="uid://uniin07cqkqu" path="res://Images/black.jpg" id="3_2gcm8"]
+[ext_resource type="AudioStream" uid="uid://hslm37l247cd" path="res://Music/Fading Light.mp3" id="4_b6k8i"]
+
+[sub_resource type="Theme" id="Theme_g56yr"]
+default_font = ExtResource("2_2oq0k")
+
+[sub_resource type="Theme" id="Theme_wyn4o"]
+default_font = ExtResource("2_2oq0k")
+
+[sub_resource type="Theme" id="Theme_s0cmg"]
+default_font = ExtResource("2_2oq0k")
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hh7rf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 600.0
+offset_bottom = 362.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="retry" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_g56yr")
+text = "Retry"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_wyn4o")
+text = "Exit"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(124.5, 319)
+scale = Vector2(1.73005, 1)
+texture = ExtResource("3_2gcm8")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = 359.0
+offset_top = 17.0
+offset_right = 454.0
+offset_bottom = 68.0
+scale = Vector2(5, 5)
+theme = SubResource("Theme_s0cmg")
+text = "Game Over"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_b6k8i")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

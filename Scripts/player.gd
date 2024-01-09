@@ -3,12 +3,14 @@ extends CharacterBody2D
 var enemy_in_range = false
 var enemy_attack_cooldown = true
 var object_in_range = false
-var health = 200
 var player_alive = true
+var interaction_running = false
+var death_animation = false
 
 var attack_ip = false
 
-const speed = 100
+var health = Global.player_current_health
+var speed = Global.player_current_speed
 var current_dir = "down"
 
 @onready var all_interactions = []
@@ -23,15 +25,16 @@ func _physics_process(delta):
 	attack()
 	current_camera()
 	update_health()
-	
-	if Input.is_action_pressed("interact"):
-		execute_interaction()
+	execute_interaction()
+	Global.get_char_current(health, speed)
 	
 	if health <= 0:
-		player_alive = false
-		health = 0
-		print("game over")
-		self.queue_free()
+		if death_animation == false:
+			$AnimatedSprite2D.play("death")
+			Music.stop_music()
+		else:
+			player_alive = true
+			Transit.get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func player_movement(delta):
 	
@@ -171,12 +174,15 @@ func update_health():
 		healthbar.visible = true
 
 func _on_regen_timer_timeout():
-	if health < 200:
-		health = health + 2
-		if health > 200:
-			health = 200
-	if health <= 0:
-		health = 0
+	if player_alive == true:
+		if health < 200:
+			health = health + 2
+			if health > 200:
+				health = 200
+		if health <= 0:
+			health = 0
+			player_alive = false
+			$death_animation.start()
 		
 
 func _on_interactable_area_area_entered(area):
@@ -194,11 +200,13 @@ func update_interactions():
 		interactlabel.text = ""
 
 func execute_interaction():
-	if all_interactions:
-		var current_interaction = all_interactions[0]
-		match current_interaction.interact_type:
-			"print_dialogue": 
-				DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), current_interaction.interact_value)
+	if Input.is_action_pressed("interact"):
+		if all_interactions and interaction_running == false:
+			var current_interaction = all_interactions[0]
+			match current_interaction.interact_type:
+				"print_dialogue": 
+					DialogueManager.show_example_dialogue_balloon(load("res://Dialogue/main.dialogue"), current_interaction.interact_value)
+			interaction_running = true
 
-
-
+func _on_death_animation_timeout():
+	death_animation = true

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://hslm37l247cd"
+path="res://.godot/imported/Fading Light.mp3-c4c85f234298031d26e0ee0bfe551324.mp3str"
+
+[deps]
+
+source_file="res://Music/Fading Light.mp3"
+dest_files=["res://.godot/imported/Fading Light.mp3-c4c85f234298031d26e0ee0bfe551324.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
