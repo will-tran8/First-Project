@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://6t3krbgvh08v"]
+
+[ext_resource type="Script" path="res://autoloads/Music.gd" id="1_dys0v"]
+[ext_resource type="AudioStream" uid="uid://kvsbk52i3fye" path="res://Music/little town - orchestral.ogg" id="2_u8clr"]
+
+[node name="Music" type="Node"]
+script = ExtResource("1_dys0v")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u8clr")

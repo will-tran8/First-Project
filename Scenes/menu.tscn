@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://c5fnkduvg34en"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.gd" id="1_o2ql4"]
+[ext_resource type="FontFile" uid="uid://b40vmg87wun7s" path="res://Font/MondayFeelings-7BD2l.ttf" id="2_18k1k"]
+[ext_resource type="AudioStream" uid="uid://c53nwwenm4lsw" path="res://Music/The Little Big Adventure!.mp3" id="2_uqair"]
+[ext_resource type="Texture2D" uid="uid://bsv1n4l0fdpk" path="res://Images/wp11630936.webp" id="3_t0jku"]
+
+[sub_resource type="Theme" id="Theme_2bkxv"]
+default_font = ExtResource("2_18k1k")
+
+[sub_resource type="Theme" id="Theme_hwnxt"]
+default_font = ExtResource("2_18k1k")
+
+[sub_resource type="Theme" id="Theme_os1ib"]
+default_font = ExtResource("2_18k1k")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o2ql4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 600.0
+offset_bottom = 362.0
+scale = Vector2(2, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_2bkxv")
+text = "Play"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_hwnxt")
+text = "Exit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uqair")
+autoplay = true
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(576, 324)
+texture = ExtResource("3_t0jku")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 15.0
+offset_right = 417.0
+offset_bottom = 66.0
+scale = Vector2(5, 5)
+theme = SubResource("Theme_os1ib")
+text = "Mini Adventure"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
