@@ -43,7 +43,7 @@ polygon = PackedVector2Array(13, -1, 174, -1, 172, -38, 251, -38, 255, -1, 257, 
 position = Vector2(212, -19)
 shape = SubResource("RectangleShape2D_xlrjo")
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="movement" type="TextEdit" parent="."]
 offset_left = 14.0
 offset_top = 20.0
 offset_right = 218.0
@@ -52,7 +52,7 @@ scale = Vector2(0.25, 0.25)
 text = "Use the arrow keys 
 to move around."
 
-[node name="TextEdit2" type="TextEdit" parent="."]
+[node name="attack" type="TextEdit" parent="."]
 offset_left = 121.0
 offset_top = 67.0
 offset_right = 289.0
@@ -61,7 +61,7 @@ scale = Vector2(0.25, 0.25)
 text = "Press e to attack
 an enemy"
 
-[node name="TextEdit3" type="TextEdit" parent="."]
+[node name="interaction" type="TextEdit" parent="."]
 offset_left = 227.0
 offset_top = 33.0
 offset_right = 467.0

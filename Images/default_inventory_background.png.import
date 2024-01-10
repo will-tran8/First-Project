@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://o0e03ahfhodf"
-path="res://.godot/imported/black.jpg-60e4d92c4691d96c300312da0f994a89.ctex"
+uid="uid://bl78flgbe00s3"
+path="res://.godot/imported/default_inventory_background.png-a31f0e91db0dfe6257cca051b294e914.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/black.jpg"
-dest_files=["res://.godot/imported/black.jpg-60e4d92c4691d96c300312da0f994a89.ctex"]
+source_file="res://Images/default_inventory_background.png"
+dest_files=["res://.godot/imported/default_inventory_background.png-a31f0e91db0dfe6257cca051b294e914.ctex"]
 
 [params]
 

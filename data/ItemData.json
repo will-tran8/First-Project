@@ -1,0 +1,13 @@
+{
+ "Tree Branch": {
+	"ItemCategory": "Resource",
+	"StackSize": 99,
+	"Description": "A sturdy tree branch that can be used for crafting and fixing broken wooden objects."
+ },
+ "Iron Sword": {
+	"ItemCategory": "Sword",
+	"ItemAttack": 3,
+	"StackSize": 1,
+	"Description": "Has the engraving "its dangerous to go alone, here take this!""
+ }
+}

@@ -20,6 +20,7 @@ Global="*res://Scripts/Global.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Music="*res://autoloads/Music.tscn"
 Transit="*res://Scenes/Transit.tscn"
+JsonData="*res://Scripts/json_data.gd"
 
 [editor_plugins]
 

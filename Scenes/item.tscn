@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0it4s1ptwcv3"]
+
+[ext_resource type="Script" path="res://Scripts/item.gd" id="1_3waft"]
+[ext_resource type="Texture2D" uid="uid://cyegj7qmbp437" path="res://Images/Iron Sword.png" id="2_6k6cg"]
+
+[node name="Item" type="Node2D"]
+z_index = 1
+script = ExtResource("1_3waft")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_6k6cg")
+
+[node name="Label" type="Label" parent="."]
+offset_top = 39.0
+offset_right = 82.0
+offset_bottom = 75.0
+text = "99"

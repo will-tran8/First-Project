@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0kttjdxr6fe2"]
+
+[ext_resource type="Texture2D" uid="uid://bl78flgbe00s3" path="res://Images/default_inventory_background.png" id="1_d7t3r"]
+[ext_resource type="Script" path="res://Scripts/inventory.gd" id="1_xha0i"]
+[ext_resource type="Texture2D" uid="uid://bifimdk5a17tj" path="res://Images/item_slot_default_background.png" id="2_lxqjt"]
+[ext_resource type="Script" path="res://Scripts/slot1.gd" id="3_xgp21"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2oijb"]
+texture = ExtResource("2_lxqjt")
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_xha0i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 277.0
+offset_top = 154.0
+offset_right = 851.0
+offset_bottom = 461.0
+texture = ExtResource("1_d7t3r")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_left = 576.0
+offset_top = 225.0
+offset_right = 845.0
+offset_bottom = 440.0
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 6
+columns = 5
+
+[node name="slot1" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot2" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot3" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot4" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot5" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot6" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot7" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot8" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot9" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot10" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot11" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot12" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot13" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot14" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot15" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot16" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot17" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot18" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot19" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="slot20" type="Panel" parent="GridContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
