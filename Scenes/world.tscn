@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://do7w74wq6dwnp"]
+[gd_scene load_steps=9 format=3 uid="uid://do7w74wq6dwnp"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_m0xxq"]
 [ext_resource type="TileSet" uid="uid://bubmy4oerf878" path="res://Art/hidden1.tres" id="2_fk8k0"]
 [ext_resource type="PackedScene" uid="uid://drkkl6jmo775f" path="res://Scenes/player.tscn" id="4_4ag7g"]
 [ext_resource type="PackedScene" uid="uid://k4vyt4b0vni1" path="res://Scenes/enemy.tscn" id="4_lgu8g"]
 [ext_resource type="PackedScene" uid="uid://c5nmabjiph2t8" path="res://Scenes/interact_area.tscn" id="5_6ufon"]
+[ext_resource type="Script" path="res://Scenes/UI.gd" id="6_wnrn0"]
+[ext_resource type="PackedScene" uid="uid://c0kttjdxr6fe2" path="res://Scenes/inventory.tscn" id="7_tk1jh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlrjo"]
 size = Vector2(78, 36)
@@ -74,6 +76,12 @@ position = Vector2(200, 55)
 interact_label = "Read Sign"
 interact_type = "print_dialogue"
 interact_value = "Sign1"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("6_wnrn0")
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("7_tk1jh")]
+visible = false
 
 [connection signal="body_entered" from="transition" to="." method="_on_transition_body_entered"]
 [connection signal="body_exited" from="transition" to="." method="_on_transition_body_exited"]
