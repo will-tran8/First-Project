@@ -9,5 +9,11 @@
 	"ItemAttack": 3,
 	"StackSize": 1,
 	"Description": "Has the engraving, 'its dangerous to go alone, here take this!'"
+ },
+ "Brown Shirt": {
+	"ItemCategory": "Shirt",
+	"ItemHealth": 20,
+	"StackSize": 1,
+	"Description": "A Brown Shirt!" 
  }
 }

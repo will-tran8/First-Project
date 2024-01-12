@@ -3,10 +3,21 @@ extends Node2D
 const SlotClass = preload("res://Scripts/slot1.gd")
 @onready var inventory_slots = $GridContainer
 var holding_item = null
+@onready var equip_slots = $EquipSlot
 
 func _ready():
 	for inv_slot in inventory_slots.get_children():
 		inv_slot.gui_input.connect(slot_gui_input.bind(inv_slot))
+	
+	initialize_inventory()
+	 
+		
+
+func initialize_inventory():
+	var slots = inventory_slots.get_children()
+	for i in range(slots.size()):
+		if PlayerInventory.inventory.has(i):
+			slots[i].initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i])
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:

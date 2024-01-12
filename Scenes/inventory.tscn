@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0kttjdxr6fe2"]
+[gd_scene load_steps=8 format=3 uid="uid://c0kttjdxr6fe2"]
 
 [ext_resource type="Texture2D" uid="uid://bl78flgbe00s3" path="res://Images/default_inventory_background.png" id="1_d7t3r"]
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="1_xha0i"]
 [ext_resource type="Texture2D" uid="uid://bifimdk5a17tj" path="res://Images/item_slot_default_background.png" id="2_lxqjt"]
 [ext_resource type="Script" path="res://Scripts/slot1.gd" id="3_xgp21"]
+[ext_resource type="Texture2D" uid="uid://dy21jj15q55ij" path="res://Images/ShirtOverlay.png" id="5_aqq2v"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2oijb"]
+texture = ExtResource("2_lxqjt")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aoe2s"]
 texture = ExtResource("2_lxqjt")
 
 [node name="Inventory" type="Node2D"]
@@ -145,4 +149,29 @@ script = ExtResource("3_xgp21")
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_2oijb")
+script = ExtResource("3_xgp21")
+
+[node name="EquipSlot" type="GridContainer" parent="."]
+offset_left = 455.0
+offset_top = 264.0
+offset_right = 587.0
+offset_bottom = 447.0
+theme_override_constants/v_separation = 50
+
+[node name="ShirtSlot" type="Panel" parent="EquipSlot"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_aoe2s")
+script = ExtResource("3_xgp21")
+
+[node name="TextureRect" type="TextureRect" parent="EquipSlot/ShirtSlot"]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 48.0
+texture = ExtResource("5_aqq2v")
+
+[node name="SwordSlot" type="Panel" parent="EquipSlot"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_aoe2s")
 script = ExtResource("3_xgp21")

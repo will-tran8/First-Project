@@ -21,6 +21,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Music="*res://autoloads/Music.tscn"
 Transit="*res://Scenes/Transit.tscn"
 JsonData="*res://Scripts/json_data.gd"
+PlayerInventory="*res://Scripts/player_inventory.gd"
 
 [editor_plugins]
 

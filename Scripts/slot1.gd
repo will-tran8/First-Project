@@ -9,16 +9,18 @@ var empty_style: StyleBoxTexture = null
 var item_class = preload("res://Scenes/item.tscn")
 var item = null
 
+enum SlotType{
+	INVENTORY,
+	SHIRT,
+	SWORD,
+}
+
 func _ready():
 	default_style = StyleBoxTexture.new()
 	empty_style = StyleBoxTexture.new()
 	default_style.texture = default_tex
 	empty_style.texture = empty_tex
 	
-	if randi() % 2 == 0:
-		item = item_class.instantiate()
-		add_child(item)
-	refresh_style()
 
 func refresh_style():
 	if item ==  null:
@@ -41,4 +43,11 @@ func putIntoSlot(new_item):
 	add_child(item)
 	refresh_style()
 
-
+func initialize_item(item_name, item_quantity):
+	if item == null:
+		item = item_class.instantiate()
+		add_child(item)
+		item.set_item(item_name, item_quantity)
+	else:
+		item.set_item(item_name, item_quantity)
+	refresh_style()
